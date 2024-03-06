@@ -1,10 +1,12 @@
 <?php require_once 'cabecalho.php' ?>
-	<section>
+	<section class="container">
 		<form action="laranjas.php" method="GET">
 		        <h1>Quanto devo pagar pelas Laranjas?</h1>
 		        <p>Digite o número que vai comprar: <input type="number" name="numero" required></p>
 		        <p><input type="submit" name="botao" value="Obtener"></p>
-
+				
+			</form>
+	   </section>
 		        <?php 
 		        if (isset($_GET['botao'])) {
 		            $laranjas = $_GET['numero'];
@@ -23,7 +25,5 @@
 		            echo "<h1> $resultado <span class='ap'> $total</span></h1>";
 		        }
 		        ?>
-		 </form>
-	</section>
 	</body>
 </html>

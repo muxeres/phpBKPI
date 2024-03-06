@@ -1,32 +1,45 @@
+$(document).ready(function() {
+  // Mostrar imagen al hacer clic en el botón
+  $('#btn-mostrar-imagen').click(function() {
+      mostrarImagen();
+  });
+});
 
-    $(document).ready(function() {
-      // Mostrar imagen al hacer clic en el botón
-      $('#btn-mostrar-imagen').click(function() {
-        $('#imagen-oculta').toggleClass('d-none');
-      });
-    });
-    function mostrarImagen() {
-      var ciudad = document.getElementById("ciudad").value;
-      var profesion = document.querySelector('input[name="profesion"]:checked').value;
+function mostrarImagen() {
+  var genero = document.querySelector('input[name="genero"]:checked').value;
+  var ubicacion = document.querySelector('input[name="ubicacion"]:checked').value;
 
-      // URL de la imagen según la ciudad y profesión seleccionadas
-      var imagenURL = obtenerImagenURL(ciudad, profesion);
+  // URL de la imagen según el género y ubicación seleccionados
+  var imagenURL = obtenerImagenURL(genero, ubicacion);
 
-   
-      var imagenPerfilDiv = document.getElementById("imagenPerfil");
-      imagenPerfilDiv.innerHTML = `<img src="${imagenURL}" class="img-fluid" alt="Imagen de perfil">`;
-    }
+  var imagenPerfilDiv = document.getElementById("imagen-oculta");
+  imagenPerfilDiv.innerHTML = `<img src="${imagenURL}" class="img-fluid" alt="Imagen de perfil">`;
+  imagenPerfilDiv.classList.remove('d-none');
+}
 
-    function obtenerImagenURL(ciudad, profesion) {
-      // Lógica para obtener la URL de la imagen según la ciudad y profesión seleccionadas
-      // Aquí podrías tener un objeto o una base de datos que relacione ciudades, profesiones y URLs de imágenes
-      // Por ahora, retornaremos una imagen de ejemplo
-      return `imagen-${ciudad}-${profesion}.jpg`; // Reemplaza con la lógica real
-    }
+function obtenerImagenURL(genero, ubicacion) {
+  // Lógica para obtener la URL de la imagen según el género y ubicación seleccionados
+  if (genero === 'hombre') {
+      if (ubicacion === 'urbana') {
+          return 'assets/hombre_urbano.jpg';
+      } else {
+          return 'assets/hombre_rural.jpg';
+      }
+  } else {
+      if (ubicacion === 'urbana') {
+          return 'assets/mujer_urbana.jpg';
+      } else {
+          return 'assets/mujer_rural.jpg';
+      }
+  }
+}
 
-    $(document).ready(function() {
-      // Mostrar imagen al hacer clic en el botón
-      $('#btn-mostrar-imagen').click(function() {
-        $('#imagen-oculta').toggleClass('d-none');
-      });
-    });
+$(document).ready(function() {
+  // Apagar el footer al cargar la página
+  $('.footer').fadeOut(0);
+
+  // Encender el footer al hacer clic en él
+  $('.footer').click(function() {
+      $(this).fadeToggle();
+  });
+});

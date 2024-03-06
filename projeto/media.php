@@ -1,11 +1,14 @@
 <?php require_once 'cabecalho.php' ?>
-	<section>
+	<section class="container">
 		<div class="container mt-5" >
 		<form action="media.php" method="GET">
 		        <h1>Tira a Media das notas do semestre</h1>
 		        <p>Digite o número de disciplinas: <input type="number" name="numero" required></p>
 		        <p><input type="submit" name="botao" value="Obtener"></p>
-				</section>
+			</form>
+		   </div>
+	   </section>
+				
 					<?php 
 					if (isset($_GET['botao'])){
 						$quantidade=$_GET['numero'];
@@ -33,9 +36,6 @@
 
 					 ?>
 						
-		 </form>
-		</div>
-	</section>
 
 </body>
 </html>

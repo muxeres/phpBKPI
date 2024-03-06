@@ -23,21 +23,24 @@
     <?php
     if (isset($_POST['boton'])) {
         require_once 'model/Perfil.php';
-
-        $nombre = $_POST['nombre'];
-        $profesion = $_POST['profesion'];
-        $ubicacion = $_POST['ubicacion'];
-
-        $perfil = new Perfil($profesion, $ubicacion);
+        $perfil = new Perfil();
+        $nombre = $perfil->getNombre();
+        $profesion = $perfil->getProfesion();
+        $ubicacion = $perfil->getUbicacion();
 
         echo "<h2>Perfil</h2>";
         echo "<p>Nombre: $nombre</p>";
-        echo "<p>Profesión: $profesion</p>";
-        echo "<p>Ubicación: $ubicacion</p>";
+        echo "<p>Profiss]ao: $profesion</p>";
+        echo "<p>Ubicação: $ubicacion</p>";
 
-        echo "<img src='".$perfil->mostrarImagen()."'>"; // Muestra la imagen correspondiente a la ubicación
-        echo "<img src='".$perfil->imagProfesion()."'>"; // Muestra la imagen correspondiente a la profesión
     }
+        echo "<p class='".$profesion->getUbicacion()."'>";
+        echo  $ubicacion ->getProfesion($profesion->mostrarImagen());
+        echo $profesion->$profesion->getProfesion($profesion->imagProfesion());
+        echo "</p";
+
+
+
     ?>
 </section>
 </body>
